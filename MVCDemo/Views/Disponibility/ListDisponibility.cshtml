@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVCDemo.Models.DisponibilityModel>
+
+@{
+    ViewBag.Title = "ListDisponibility";
+}
+
+<h2>ListDisponibility</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OEEDisponibilityID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MachineID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OEEDisponibilityStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FailDictionaryCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OEEDisponibilityTimeStamp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OEEDisponibilityID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MachineID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OEEDisponibilityStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FailDictionaryCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OEEDisponibilityTimeStamp)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

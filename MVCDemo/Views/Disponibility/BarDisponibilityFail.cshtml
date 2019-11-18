@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "BarDisponibilityFail";
+}
+
+<h2>Bar Disponibility Fail</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Charts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js">
+
+    </script>
+    <script>
+
+        var barChartData =
+            {
+                labels: [@Html.Raw(ViewBag.FailNameList), @Html.Raw(ViewBag.FailNameList)],
+                datasets: [{
+                    label: 'Fail Count',
+                    backgroundColor: [
+                        "#f990a7",
+                        "#aad2ed",
+                    ],
+                    borderWidth: 2,
+                    data: [@ViewBag.FailCountList, @ViewBag.FailCountList]
+                }]
+            };
+
+            window.onload = function () {
+                var ctx1 = document.getElementById("barcanvas").getContext("2d");
+                window.myBar = new Chart(ctx1,
+                    {
+                        type: 'bar',
+                        data: barChartData,
+                        options:
+                        {
+                            title:
+                            {
+                                display: true,
+                                text: "Fail Count"
+                            },
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true
+                                    }
+                                }]
+                            }
+                        }
+                    },
+                );
+            }
+    </script>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <canvas id="barcanvas"></canvas>
+    </div>
+    <div style="text-align: center">
+        Disclaimer:- This data is for demo it is
+        not real data it wont relate to any company
+    </div>
+
+</body>
+</html>
+
+
+
